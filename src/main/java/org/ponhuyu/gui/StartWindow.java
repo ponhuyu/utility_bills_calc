@@ -1,32 +1,37 @@
 package org.ponhuyu.gui;
 
+import org.ponhuyu.gui.forms.MainFrame;
+import org.ponhuyu.gui.forms.MainWindow;
+
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class StartWindow {
 
-    private final JFrame MAIN_FRAME;
+
 
     {
-        MAIN_FRAME = new JFrame("utility bills calculator");
+        mainFrame = new MainFrame();
     }
 
+    private final MainFrame mainFrame;
 
     public void createAndShowStartGUI() {
         //Create and set up the window.
 
-        MAIN_FRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame frame = new JFrame("MainWindow");
 
-        //Add the ubiquitous "Hello World" label.
-        JLabel label = new JLabel("Hello World");
-        MAIN_FRAME.getContentPane().add(label);
+        frame.setContentPane(mainFrame.getPanelForButtons());
 
-        //Display the window.
-        MAIN_FRAME.pack();
-        MAIN_FRAME.getContentPane().setBackground(new Color(52, 52, 52));
-        //Center the screen
-        MAIN_FRAME.setLocationRelativeTo(null);
-        MAIN_FRAME.setVisible(true);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
+
+
     }
-
+    private int count = 0;
 }
